@@ -14,12 +14,31 @@ Tech:
 <img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge">
 <img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white">
 
-<img src="/img/all.png">
+
+## Views ##
+
+
+Home <br>
+
+<img src="https://i.ibb.co/8YPTBDv/home.png"> <br>
+Login <br>
+
+<img src="https://i.ibb.co/87Jb24j/login.png"> <br>
+
+Product Detail <br>
+<img src="https://i.ibb.co/NpQF5qy/detail.png">
+
+All products <br>
+<img src="https://i.ibb.co/GF2Qfwq/all.png">
+
+
+
+
 ### **Test it!** :rocket:
 
 User: 
 ``````
-Email: admin@mail.com <br>
+Email: admin@mail.com 
 Pass: 12345678
 ``````
 
@@ -44,12 +63,27 @@ Tecnologias utilizadas:
 <img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge">
 <img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white">
 
+## Vistas ##
+
+Home <br>
+
+<img src="https://i.ibb.co/8YPTBDv/home.png"> <br>
+Login <br>
+
+<img src="https://i.ibb.co/87Jb24j/login.png"> <br>
+
+Detalle de producto <br>
+<img src="https://i.ibb.co/NpQF5qy/detail.png">
+
+Todos los productos <br>
+<img src="https://i.ibb.co/GF2Qfwq/all.png">
+
 
 ### **Probalo!** :rocket:
 
 Usuario: 
 ``````
-Email: admin@mail.com <br>
+Email: admin@mail.com 
 Contraseña: 12345678
 ``````
 
