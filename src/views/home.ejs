@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include ('partials/head') %> 
+<body>
+    <!--HEADER-->
+    <%- include('partials/header')  %> 
+        <div class="banner-all">
+            <input type="radio" id="1" name="image-slider" hidden>
+            <input type="radio" id="2" name="image-slider" hidden>
+            <input type="radio" id="3" name="image-slider" hidden>
+            <input type="radio" id="4" name="image-slider" hidden>
+
+            <div class="slider">
+                    <div class="item-slider">
+                       <a href="/products/muebles"><img src="img/slider/banner-1.jpg" alt=""></a>
+                    </div>
+                    <div class="item-slider">
+                        <a href="/products/decoracion"><img src="img/slider/banner-2.jpg" alt=""></a>
+                    </div>
+                    <div class="item-slider">
+                      <a href="/products/usopersonal"><img src="img/slider/banner-3.jpg" alt=""></a>
+                    </div>
+                    <div class="item-slider">
+                        <a href="/products/viajes"><img src="img/slider/banner-4.jpg" alt=""></a>
+                    </div> 
+            </div>
+
+                <div class="pagination">
+                    <label class="pagination-item" for="1">
+                        <img src="img/slider/banner-1.jpg" alt="">
+                    </label>
+                    <label class="pagination-item" for="2">
+                        <img src="img/slider/banner-2.jpg" alt="">
+                    </label>
+                    <label class="pagination-item" for="3">
+                        <img src="img/slider/banner-3.jpg" alt="">
+                    </label>
+                    <label class="pagination-item" for="4">
+                        <img src="img/slider/banner-4.jpg" alt="">
+                    </label>
+                </div>
+        </div>
+    <main> 
+        <section class="visita">
+            <h3>Líneas  Destacadas</h3>
+            <div class="productos">
+                <article class="producto">
+                            <a href="/products/muebles/">
+                                <img src="/img/percherowelcome160x76x381.jpeg"  alt="mueble" class="producto_img"></a>
+                        <div >
+                            <h4 class="titulo-descripcion">Muebles</h4>
+                        </div>
+                    </article>
+            
+                    <article class="producto">
+                        <a href="/products/decoracion">
+                         <img src="/img/maceterogeometricocolgante_33261.jpeg"  alt="mueble" class="producto_img"></a>
+                        <div >
+                            <h4 class="titulo-descripcion">Decoracion </h4>
+                        </div>
+                    </article>
+                
+                        <article class="producto">
+                                <a href="/products/usopersonal">
+                                    <img src="/img/agenda2022mividaa5.jpeg" alt="mueble" class="producto_img"></a>
+                            <div >
+                                <h4 class="titulo-descripcion">Uso Personal</h4>   
+                            </div>
+                        </article>
+                        
+                            <article class="producto">
+                                <a href="/products/viajes">
+                                        <img src="/img/identificadorequipaje_0905.jpeg"  alt="mueble" class="producto_img"></a>
+                                <div>
+                                    <h4 class="titulo-descripcion">Viaje </h4>   
+                                </div>
+                            </article>
+
+                             <div class="linea divisora">
+                              <h2 class="lines-effect"> Nuevos Lanzamientos </h2>
+                             </div>  
+                       
+                            <div class="banner-2all">
+                                <input type="radio" id="1" name="image-slider" hidden>
+                                <input type="radio" id="2" name="image-slider" hidden>
+                                <input type="radio" id="3" name="image-slider" hidden>
+                                
+                                <div class="banner-2">
+                                    <div class="items-slider">
+                                        <img src="img/banner-2/asado1.jpg" alt="">
+                                    </div>
+
+                                    <div class="item-slider">
+                                        <img src="img/banner-2/gimnacio2.jpg" alt="">
+                                    </div>
+
+                                    <div class="item-slider">
+                                        <img src="img/banner-2/exterior3.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>   
+
+                            <div class="linea divisora">
+                                <h2 class="lines-effect"> Productos destacados</h2>
+                               </div>
+                               
+                               <% function shuffleArray(x){%>
+                                <%  x.sort(()=> Math.random() - 0.5)%>
+                                <% return x%>
+                                <% } %><!-- esto es para desordenar el array de todos los productos  -->
+                                    
+                                
+                            <% shuffleArray(destacados)%>
+                               <% destacados.forEach((product,j) => { %>
+                                <% if (j<4) { %>  <!-- pone solo 4 productos-->
+                                <section class="prod-box">
+                                    <a href="/products/favoritos"><i  class="agreagar-favoritos far fa-heart"></i></a>
+                               <a href="products/<%= product.id%>"> 
+                                <div class="highlight-prod">
+                                     <img src="/img/productos/<%= product.img%>" alt="mueble" class="product-img"></a>
+                                    <p>$<%= product.price%></p>
+                                        <p><%= product.name%></p>
+                                    
+                                        <% } %>     
+                               </div></section>
+                               <% }) %>
+                               
+                            
+
+            </div>                
+        </section>
+       
+   </main>
+
+   <%- include('partials/footer')  %> 
+   
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include ('../partials/head') %> 
+<body>
+    <%- include('../partials/header')  %> 
+
+        <main>
+        
+            <section class="visita">
+                <h3 class="addedit">CREAR NUEVO PRODUCTO</h3>
+            </section>
+            <form action="/products" method="POST" enctype="multipart/form-data" class="add-edit" id="formulario-product">
+        
+                <div class="form-control" id="grupo_name">
+                    <label for="name" class="formulario_label">Nombre</label>
+                    <div class="formulario_grupo_input">
+                        <input type="text" name="name" id="name" class="formulario_input"
+                            value="<%= locals.oldData ? oldData.name : null %>">
+                        <i class="formulario_validacion_estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario_input_error">El nombre debe tener minimo 5 caracteres y solo puede contener letras y
+                        números</p>
+                    <% if (locals.errors && errors.name) { %>
+                        <div class="text-danger">
+                            <%= errors.name.msg %>
+                        </div>
+                        <% } %>
+                </div>
+                <div class="form-control">
+                    <label for="">Categorias</label>
+                    <div class="checkbox">
+                        <% for (let j=0; j < Categoria.length; j++){ %>
+                            <label for="" class="check"><input type="checkbox" name="category" id="<%Categoria[j].category%>"
+                                    value="<%=Categoria[j].id%>" class="check" <%=locals.oldData &&
+                                    (Categoria[j].category===oldData.category) ? 'checked' : null %>><%=Categoria[j].category%>
+                                    </label>
+                            <%}%>
+                    </div>
+                    <% if (locals.errors && errors.category) { %>
+                        <div class="text-danger">
+                            <%= errors.category.msg %>
+                        </div>
+                        <% } %>
+        
+                            <div class="form-control" id="grupo_image">
+                                <label for="image" class="">Selecciona las imagenes para tu producto</label>
+                                <input type="file" name="image" accept=".png, .jpg, .jpeg" src="" multiple>
+                                <span class="imgs">Solo acepta .png, .jpg, .jpeg .gif</span>
+                                <% if (locals.errors && errors.image) { %>
+                                    <div class="text-danger">
+                                        <%= errors.image.msg %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <div class="form-control" id="grupo_description">
+                                <label for="description" class="formulario_label">Descripcion del producto</label>
+                                <div class="formulario_grupo_input">
+                                    <textarea class="formulario_input textarea" name="description" id="description"> </textarea>
+                                    <i class="formulario_validacion_estado fas fa-times-circle"></i>
+                                </div>
+                                <p class="formulario_input_error">La descripción debe tener minimo 20 caracteres</p>
+                                <% if (locals.errors && errors.description) { %>
+                                    <div class="text-danger">
+                                        <%= errors.description.msg %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <div class="form-control" id="grupo_measurements">
+                                <label for="measurements" class="formulario_label">Medidas:</label>
+                                <div class="formulario_grupo_input">
+                                    <input type="text" name="measurements" class="formulario_input" id="measurements"
+                                        value="<%= locals.oldData ? oldData.measurements : null %>">
+                                    <i class="formulario_validacion_estado fas fa-times-circle"></i>
+                                </div>
+                                <p class="formulario_input_error">Las medidas no debe quedar Vacio</p>
+                                <% if (locals.errors && errors.measurements) { %>
+                                    <div class="text-danger">
+                                        <%= errors.measurements.msg %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <div class="form-control">
+                                <label for="">Colores</label>
+                                <div class="checkbox">
+                                    <% for (let k=0; k < Colors.length; k++){ %>
+                                        <label for="" class="check"><input type="checkbox" name="color"
+                                                value="<%=Colors[k].id%>" class="check" <%=locals.oldData &&
+                                                (Colors[k].color===oldData.color) ? 'checked' : null %>><%=Colors[k].color%>
+                                                </label>
+                                        <%}%>
+                                </div>
+                                <% if (locals.errors && errors.color) { %>
+                                    <div class="text-danger">
+                                        <%= errors.color.msg %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <div class="form-control">
+                                <label for="">Material</label>
+                                <select name="material" id="material">
+                                    <% for (let i=0; i < Material.length; i++){ %>
+                                        <option value="<%=Material[i].id%>" <%=locals.oldData &&
+                                            (Material[i].material===oldData.Material) ? 'selected' : null %>>
+                                            <%=Material[i].material%>
+                                        </option>
+                                        <%}%>
+                                </select>
+                                <% if (locals.errors && errors.material) { %>
+                                    <div class="text-danger">
+                                        <%= errors.material.msg %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <div class="form-control">
+                                <label for="origin">Origen</label>
+                                <select name="origin" id="origin">
+                                    <% for (let i=0; i < Country.length; i++){ %>
+                                        <option value="<%=Country[i].id%>" <%=locals.oldData &&
+                                            (Country[i].country===oldData.country) ? 'selected' : null %>>
+                                            <%=Country[i].country%>
+                                        </option>
+                                        <%}%>
+                                </select>
+                                <% if (locals.errors && errors.origin) { %>
+                                    <div class="text-danger">
+                                        <%= errors.origin.msg %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <div class="form-control" id="grupo_price">
+                                <label for="price" class="formulario_label">Precio</label>
+                                <div class="formulario_grupo_input">
+                                    <input type="text" name="price" id="price" class="formulario_input"
+                                        value="<%= locals.oldData ? oldData.price : null %>">
+                                    <i class="formulario_validacion_estado fas fa-times-circle"></i>
+                                </div>
+                                <p class="formulario_input_error">El precio tiene que ser un número y no puede ser vacío</p>
+                                <% if (locals.errors && errors.price) { %>
+                                    <div class="text-danger">
+                                        <%= errors.price.msg %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <div class="buttons">
+                                <a href="#"><button type="submit" class="enviar">AGREGAR</button></a>
+        
+                            </div>
+        
+            </form>
+        
+        
+        
+        
+        </main>
+        
+        <%- include('../partials/footer') %>
+            <script src="/js/CreateProductValidations.js"></script>
+        
+            </body>
+    </html>
+
+
+

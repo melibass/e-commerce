@@ -1,0 +1,20 @@
+<% function shuffleArray(x){%>
+    <%  x.sort(()=> Math.random() - 0.5)%>
+    <% return x%>
+    <% } %><!-- esto es para desordenar el array de todos los productos  -->
+        
+    
+<% shuffleArray(mostrar)%> <!-- le pasamos todos los productos destacados para que los desordene  -->
+
+<% mostrar.forEach((products,j) => { %>
+    
+    <% if (j<3) { %> 
+        <section class="prod-box">            
+        <a href="products/<%= products.id%>">  
+        <div class="highlight-prod">   
+        <img src="/img/productos/<%= products.img%>" alt="mueble" class="product-img"></a>
+        <p>$<%= products.price%></p>
+        <p><%= products.name%></p>          
+    <% } %> 
+</div></div></section>
+<% }) %>

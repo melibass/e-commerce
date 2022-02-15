@@ -1,0 +1,75 @@
+.formulario_label {
+	display: block;
+	cursor: pointer;
+}
+
+.formulario_grupo_input {
+	position: relative;
+}
+
+.formulario_input {
+	width: 100%;
+	background: #fff;
+	border: 3px solid transparent;
+	border-radius: 10px;
+	height: 35px;
+	line-height: 35px;
+	transition: .3s ease all;
+	}
+
+.formulario_input.textarea{
+	height: 105px;
+	line-height: 25px;
+	vertical-align: text-top;
+	}
+
+.formulario_input:focus {
+	border: 3px solid #0075FF;
+	outline: none;
+	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
+}
+
+.formulario_input_error {
+	font-size: 12px;
+	color: red;
+	margin-bottom: 0;
+	display: none;
+}
+
+.formulario_input_error_activo {
+	display: block;
+}
+
+.formulario_validacion_estado {
+	position: absolute;
+	right: 10px;
+	bottom: 12px;
+	z-index: 100;
+	font-size: 16px;
+	opacity: 0;
+}
+.formulario_validacion_estado.repass{
+	bottom: 25px;
+}
+
+/*validaciones*/
+.formulario_grupo_correcto .formulario_validacion_estado {
+	color: #1ed12d;
+	opacity: 1;
+}
+.formulario_grupo_correcto .formulario_validacion_estado.repass {
+	bottom: 12px;
+}
+
+.formulario_grupo_incorrecto .formulario_label {
+	color: #bb2929;
+}
+
+.formulario_grupo_incorrecto .formulario_validacion_estado {
+	color: #bb2929;
+	opacity: 1;
+}
+
+.formulario_grupo_incorrecto .formulario_input {
+	border: 3px solid #bb2929;
+}

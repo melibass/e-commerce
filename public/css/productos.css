@@ -1,0 +1,166 @@
+
+.body-product{
+    margin-top: 160px;
+    
+    
+}
+.visita{
+   width: 100%;
+    padding: 1px; 
+}
+
+.list-title {
+    margin-bottom: 10px;
+}
+/* Dar Formato a la palabra categoria*/
+.linea-producto p {
+    font-size: 20px;
+    color: #3D405B;
+    font-weight: bolder;
+}
+/*Sacarle estilos a la lista del menu lateral*/
+.menu-productos li {   
+    list-style-type: none;
+    
+}
+
+/*Agregando distancia del inicio/producto al banner */
+section h3 {
+    margin-bottom: 20px;
+    color: #3D405B;
+    
+}
+
+/*Agregando distancia de la palabra categorias a inicio*/
+.linea-producto {
+    margin-bottom: 25px;
+}
+
+/*ocultar el menu lateral cuando la pagina es chica*/
+.menu-lateral {
+    display: none;
+}
+div.formularios{
+    color: #3D405B;
+}
+div.formularios a {
+    color: #E07A5F;
+}
+/*Sacar estilo al menu lateral links*/
+.menu-productos a {
+    text-decoration: none;
+    color:#3D405B;
+    
+}
+
+/*Dar espacio entre los items del menu lateral*/
+.menu-productos li {
+    margin-bottom: 5px;
+    
+}
+/*aca empieza el cuerpo de todos los productos creados */
+
+div.products-list {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+ }
+ th, td {
+    width: 25%;
+    text-align: left;
+ }
+ table td.botones-list{
+     display: flex;
+     justify-content: center;
+ }
+table thead.encabezado {
+    font-size: 20px;
+    font-weight: bold;
+}
+div.action-buttonedit.creaprod{
+    width: 200px;
+    display: flex;
+    text-align: center;
+}
+.botones-inventory{
+
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+@media (min-width:361px) {
+    article.product-category{
+        display:block;
+        display: inline-flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        align-self: center;
+        }
+.precio-products {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+
+}
+/*Reglas para pantallas superiores a 769px*/
+@media (min-width:769px) {
+    /*ocultar la palabra de la categoria
+    .categoria {
+        display: none;
+    }*/
+    /*mostrar el menu lateral y darle formato*/
+    .unit-product {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    padding: 2px;
+    }
+   
+    div.img-specs {
+        display: flex;
+        justify-content: flex-start;
+    }
+    .img-specs {
+        display: flex;
+        padding: 10px;
+    }
+    .specs {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        line-height: 24px;
+    }
+    .menu-lateral {
+        display: block;
+        padding: 2px;
+        width: 20%;
+    }
+    /*mostrar el menu lateral y las imagens en horizontal*/
+    .menu-imagenes {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+        
+
+    }
+    .products {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    
+}

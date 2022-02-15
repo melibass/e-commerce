@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include ('partials/head') %> 
+<body>
+    <%- include('partials/header')  %> 
+    <main class="cuerpo">
+        
+        <section class="visita">
+            <h3>LISTADO DE PRODUCTOS<!-- ACA PONDRIA: ESTAS VIENDO CATEGORIA ------ --></h3>
+        </section>
+    
+        <div class="menu-imagenes"> 
+            <!--<section class="menu-lateral">
+                <div class="linea-producto">
+                    <p>Categorias</p>
+                </div>
+                <div>
+                    <ul class="menu-productos">
+                        <li><a href="./products">Muebles</a></li>
+                        <li><a href="./products">Decoracion</a></li>
+                        <li><a href="./products">Uso personal</a></li>
+                        <li><a href="./products">Viajes</a></li>
+                        
+                    </ul>
+                </div>
+            </section>-->
+            <% if (notfound) { %>
+                
+                    <h2 class="letrasazules">No hay resultados para la búsqueda. Por favor, intentalo de nuevo.</h2>
+            <% } else {  %>   
+            <div class="products"> 
+                
+                <% for( let i=0; i < mostrar.length; i++ ) { %>
+                    <div class="highlight-prod">
+                        <a href="/products/<%= mostrar[i].id %> " class="unit-product">
+                        <img src="/img/productos/<%= mostrar[i].img %>" width="200" alt="taza" class="producto_img"></a> 
+                        <div class="precio-products">
+                        <p>$<%= mostrar[i].price%></p>
+                        <p><%= mostrar[i].name%></p>
+                    </div>
+                    </div>
+                    <% } %> 
+                    <% } %>        
+        </div>     
+   </main>
+   <%- include('partials/footer')  %> 
+   
+</body>
+</html>
+

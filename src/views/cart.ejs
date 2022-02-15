@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include ('partials/head') %> 
+<body>
+    <%- include('partials/header') %>
+
+        <main class="cart">
+            <div class="cart-title">
+                <h2>Carrito de Compras</h2>
+            </div>
+
+            <div class="border-top"></div>
+            <% resultado.forEach(product=> { %>
+                <div class="product">
+                    <div class="product-details">
+                        <img src="/img/productos/<%= product.img %>" alt="<%= product.name %>">
+
+                        <div class="product-specs">
+                            <ul>
+                                <li>
+                                    <%= product.name %>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="product-quantity">
+
+                            <div class="quantity-number">
+
+                                <select>
+                                    <% for (let i=1; i < 5 ; i++){ %>
+                                        <option value="<%= i %>">
+                                            <%= i %>
+                                        </option>
+                                        <%}%>
+                                </select>
+
+                            </div>
+
+                        </div>
+                        <div class="product-price" value="<%= product.price %>">
+                            <%= product.price %>
+                        </div>
+                        <form action="/products/cart/<%= product.id %>?_method=DELETE" method="post">
+                            <div class="bin"><button><i class="fas fa-trash-alt"></i></button></div>
+
+                        </form>
+                    </div>
+
+                </div>
+
+
+                <div class="border-top"></div>
+                <% }) %>
+
+
+                    <div class="total-shopping">
+                        <h4 class="total-title">Resumen de compras</h4>
+                        <div class="border-top"></div>
+
+                        <div class="total-order">
+                            <h5 class="total">Total del pedido </h5>
+                            <div class="suma-pedido"></div>
+                        </div>
+                        <div class="confirm-button">
+                            <button type="submit" class="button-order">Realizar el pedido</button>
+                        </div>
+                    </div>
+                    </div>
+
+
+        </main>
+
+        <script>
+            let costo = document.querySelectorAll(".product-details")
+            let total = 0
+            let totalItem = 0
+            let totalito = 0
+
+
+            costo.forEach(precio => {
+                let i = precio.querySelector(".quantity-number")
+                let itemProducto = parseInt(precio.querySelector(".product-price").textContent)
+                total = total + itemProducto
+
+
+                i.addEventListener("change", (e) => {
+                    costo1 = e.target.value
+                    costo1 = parseInt(costo1)
+                    totalItem = itemProducto * costo1
+                    precio.querySelector(".product-price").innerHTML = totalItem
+                    totalito = totalItem
+                    //total = total + totalItem
+                    //document.querySelector(".suma-pedido").innerHTML = " $ " + total 
+                    console.log(totalito)
+                })
+
+            })
+            document.querySelector(".suma-pedido").innerHTML = " $ " + total
+
+
+
+        </script>
+
+        <%- include('partials/footer') %>
+</body>
+</html>

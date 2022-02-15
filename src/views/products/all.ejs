@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include ('../partials/head') %> 
+<body>
+    <%- include('../partials/header')  %> 
+    <main class="body-product">
+        
+        <section class="visita">
+            <h3>TODOS LOS PRODUCTOS</h3>
+        </section>
+    
+        <div class="menu-imagenes"> 
+           
+            <div class="products">
+                
+                <% inventory.forEach(product => { %>
+                    <div class="highlight-prod">
+                        <% if (locals.isLogged) { %>
+                        <i  class="agreagar-favoritos far fa-heart"></i>
+                        <a href="/products/<%= product.id %> " class="unit-product">
+                            <img src="/img/productos/<%= product.img %>" width="200" alt="taza" class="producto_img"></a> 
+                            <div class="precio-products">
+                            <p>$<%= product.price%></p>
+                            <p><%= product.name%></p>
+                        <% } else { %>
+                        <a href="/users/login"><i  class="agreagar-favoritos far fa-heart"></i></a> 
+                        <a href="/products/<%= product.id %> " class="unit-product">
+                            <img src="/img/productos/<%= product.img %>" width="200" alt="taza" class="producto_img"></a> 
+                            <div class="precio-products">
+                            <p>$<%= product.price%></p>
+                            <p><%= product.name%></p>
+                            <% } %>
+                    </div>
+                    </div>
+                   <% }) %> 
+                
+                    </div>            
+        </div>     
+        
+   </main>
+   <script src="/js/favoritosHeart.js"></script>
+   <%- include('../partials/footer')  %> 
+   
+</body>
+</html>

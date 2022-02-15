@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include ('../partials/head') %> 
+<body>
+    <%- include('../partials/header')  %> 
+    <main class="cuerpo">
+        
+        <section class="visita">
+            <h3>LISTADO DE PRODUCTOS<!-- ACA PONDRIA: ESTAS VIENDO CATEGORIA ------ --></h3>
+        </section>
+    
+        <div class="menu-imagenes"> 
+            <!--<section class="menu-lateral">
+                <div class="linea-producto">
+                    <p>Categorias</p>
+                </div>
+                <div>
+                    <ul class="menu-productos">
+                        <li><a href="./products">Muebles</a></li>
+                        <li><a href="./products">Decoracion</a></li>
+                        <li><a href="./products">Uso personal</a></li>
+                        <li><a href="./products">Viajes</a></li>
+                        
+                    </ul>
+                </div>
+            </section>-->
+            <div class="products">
+                
+                <% mostrar.forEach(product => { %>
+                    <div class="highlight-prod">
+                        <i  class="agreagar-favoritos far fa-heart"></i>
+                        <a href="/products/<%= product.id %> " class="unit-product">
+                        <img src="/img/productos/<%= product.img %>" width="200" alt="taza" class="producto_img"></a> 
+                        <div class="precio-products">
+                        <p>$<%= product.price%></p>
+                        <p><%= product.name%></p>
+                    </div>
+                    </div>
+                   <% }) %> 
+                
+                    </div>            
+        </div>     
+   </main>
+   <script src="/js/favoritosHeart.js"></script>
+   <%- include('../partials/footer')  %> 
+   
+</body>
+</html>
+

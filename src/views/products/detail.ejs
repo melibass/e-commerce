@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include ('../partials/head') %> 
+<body>
+    <%- include('../partials/header')  %> 
+
+
+    <main class="cuerpo">
+        <section class="visita">
+           
+        </section>
+    
+    <div class="imagen-compra">   
+       
+            <div class="imagen-datos">        
+                <div class="productos-compra">
+                
+                    <article class="producto-compra">
+                    <div class="foto1">
+                        <a href="/img/productos/<%= product.img%>">
+                    <img src="/img/productos/<%= product.img%>" width="360" alt="taza" class="producto_img">
+                    </div></a>
+                    </article>
+        
+
+                </div>
+            </div>
+        
+            <div class="compra">
+                <div>
+                    <p class="titulo-articulo"><%= product.name%></p>
+                </div>
+                <div>
+                    <p class="precio-articulo">$ <%=product.price%></p>
+                </div>
+                <div class="linea">
+                    <p class="descripcion-articulo-titulo">Descripcion</p> 
+                    <p class="descripcion-articulo"><%=product.description%></p>
+                </div>
+                <div class="linea">
+                    <p class="descripcion-medidas-titulo">Color</p> 
+                    <% for (let i=0; i<product.colors.length; i++) { %>
+                        
+                    <p class="descripcion-medidas"><%=product.colors[i].color%></p>
+                    <% } %>
+                </div>
+                <div class="linea">
+                    <p class="descripcion-medidas-titulo">Medidas</p>
+                    <p class="descripcion-medidas"><%=product.measure%></p>
+                </div>
+                <div class="linea">
+                    <p class="descripcion-material-titulo">Material</p>
+                    <p class="descripcion-material"><%=product.materials.material%></p>
+                </div>
+                <div class="linea">
+                    <p class="descripcion-material-titulo">Origen</p>
+                    <p class="descripcion-material"><%=product.Country.country%></p>
+                </div>
+                <% if (locals.isLogged && locals.userLogged.rol == "admin") { %>
+                <div class="botones">
+                    <form action="/products/favoritos/<%= product.id  %>" method="POST" style="display: inline-flex">
+                        <button type="submit" class="action-buttondelete">Agregar a Favoritos</button>
+                        </form> 
+                   <a href="/products/editproduct/<%= product.id  %>">
+                    <button type="submit" class="action-buttonedit">EDITAR </button></a>
+                    
+                    <form action="/products/<%= product.id  %>?_method=DELETE" method="POST" style="display: inline-flex">
+                    <button type="submit" class="action-buttondelete">ELIMINAR</button>
+                    </form>
+                </div>
+                <div class="boton">
+                    
+                    <!-- <input type="button" value="AGREGAR AL CARRITO" class="boton-compra">
+                    <p class="carrito"><i class="fas fa-shopping-cart"></i></p> -->
+                    <form action="/products/cartStore/<%= product.id  %>" method="POST" style="display: inline-flex">
+                    <button type="submit" value="<%= product.id %>" class="boton-compra">AGREGAR AL CARRITO<i class="fas fa-shopping-cart"></i></button>
+                    <button type="submit" class="boton-compra2"><i class="fas fa-shopping-cart"></i></button>
+                </form>
+                </div>
+                <% } else if (locals.isLogged) { %> 
+                    <div class="botones">
+                        <form action="/products/favoritos/<%= product.id  %>" method="POST" style="display: inline-flex">
+                            <button type="submit" class="action-buttondelete">Agregar a Favoritos</button>
+                            </form> 
+                    </div>
+
+                     
+                
+                <div class="boton">
+                    
+                    <!-- <input type="button" value="AGREGAR AL CARRITO" class="boton-compra">
+                    <p class="carrito"><i class="fas fa-shopping-cart"></i></p> -->
+                    <form action="/products/cartStore/<%= product.id  %>" method="POST" style="display: inline-flex">
+                    <button type="submit" value="<%= product.id %>" class="boton-compra">AGREGAR AL CARRITO<i class="fas fa-shopping-cart"></i></button>
+                    <button type="submit" class="boton-compra2"><i class="fas fa-shopping-cart"></i></button>
+                </form>
+                </div>
+                <% } else { %>
+                    <div class="boton">
+                    
+                        <!-- <input type="button" value="AGREGAR AL CARRITO" class="boton-compra">
+                        <p class="carrito"><i class="fas fa-shopping-cart"></i></p> -->
+                        <form action="/users/login" method="get" style="display: inline-flex">
+                        <button type="submit" class="boton-compra">AGREGAR AL CARRITO<i class="fas fa-shopping-cart"></i></button>
+                       
+                    </form>
+                    </div>
+                    <% } %>
+                
+            </div> 
+    </div>
+
+    <h3>Productos Destacados</h3>
+    <% function shuffleArray(x){%>
+        <%  x.sort(()=> Math.random() - 0.5)%>
+        <% return x%>
+        <% } %><!-- esto es para desordenar el array de todos los productos  -->
+            
+        
+    <% shuffleArray(mostrar)%> <!-- le pasamos todos los productos destacados para que los desordene  -->
+    <div class="destacados">
+    <% mostrar.forEach((products,j) => { %>
+        
+        <% if (j<3) { %> 
+            <section class="prod-box">            
+            <a href="/products/<%= products.id%>">  
+            <div class="highlight-prod">   
+            <img src="/img/productos/<%= products.img%>" alt="mueble" class="product-img"></a>
+            <p>$<%= products.price%></p>
+            <p><%= products.name%></p>          
+        <% } %> 
+    </div></section>
+    <% }) %>
+</div>          
+
+   </main>
+   <script src="/js/cart.js"></script> 
+   <%- include('../partials/footer')  %> 
+   
+</body>
+</html>

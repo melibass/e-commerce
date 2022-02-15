@@ -1,0 +1,288 @@
+main {
+    margin-top: 150px;
+}
+
+.ingresa {
+    margin-top: 150px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 32px;
+
+}
+/*aviso del register-validetor*/
+.text-danger{
+    color:red;
+    font-size: 12px;
+    font-style: italic;
+}
+/*Aca empieza las Validaciones del Registro*/ 
+
+/*ojo del registro*/
+#ojito{
+    position: absolute;
+    top:49px;
+    right: 40px;
+    font-size: 15px;
+    }
+    .position-2{
+        position: relative;
+    }
+/*Aca empieza las Validaciones del Registro*/ 
+
+ /*validacion login*/
+
+ #ojo{
+    position: absolute;
+    top:43px;
+    right: 20px;
+    font-size: 15px;
+    
+    }
+    .position{
+        position: relative;
+    }
+
+
+  
+/*icono del registro*/
+ .exclamation-circle{
+    position:absolute;
+    top:43px;
+    right: 20px;
+    font-size: 15px;
+    opacity: 0;
+    
+    
+}  
+
+/*sobre los formulario*/
+   
+
+
+
+
+
+
+.position-1{
+    position: relative;
+}
+
+
+    
+.crea {
+    margin-top: 150px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 32px;
+
+}
+
+h3.addedit{
+    margin-top: 150px;
+}
+.form-control {
+    padding: 15px 10px;
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 3px;
+}
+
+form.login {
+    margin: 15px auto;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F3F1F0;
+    border-radius: 8px
+}
+form.login input {
+    background-color: #fff;
+}
+
+p.login {
+    text-align: center;
+    width: 100%;
+}
+.register-here {
+color: #E07A5F;
+}
+
+
+.form-control label {
+    width: 100%;
+    margin-bottom: 4px;
+}
+.form-control input {
+    width: 100%;
+}
+input {
+    transition: all 1.5s;
+}
+input:focus{ 
+  outline-color: #E07A5F;
+  border: 2px;
+}
+
+.enviar:focus{
+    color:#F4F1DE;
+    background-color: #81B29A ;
+}
+.enviar {
+
+    margin: 3px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    padding: 8px 60px;
+    border: 0px;
+    background-color: #3D405B ;
+    color: white;
+    border-radius: 8px;
+} 
+.borrar {
+    margin: 3px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    padding: 8px 60px;
+    border: 0px;
+    background-color: #E07A5F ;
+    color: white;
+    border-radius: 8px;
+} 
+ .buttons {
+     display: flex;
+     justify-content: center;
+     flex-direction: column;
+ }
+/*botones 
+.enviar {
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 1.5s;
+}
+.enviar:hover {
+    color:#F4F1DE;
+    background-color:#3D405B ;
+}
+.enviar{
+    margin: 3px;
+    margin-bottom: 5px;
+    font-size: 18px;
+    padding: 8px 60px;
+}
+/*.enviar {
+    text-align: center;
+    background-color: #3D405B;
+    border-radius: 8px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}   
+.enviar:hover {
+    background-color: #3D405B;
+    color: #F4F1DE;
+}*/
+
+/*particular del register */
+form.register {
+    margin: 15px auto;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F3F1F0;
+    border-radius: 8px
+}
+
+form.register input {
+    background-color: #fff;
+}
+
+
+
+
+/*.borrar {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #E07A5F;
+    transition: background-color 1.5s;
+}
+.borrar:hover {
+    color:#F4F1DE;
+    background-color:#3D405B ;
+}
+.borrar{
+    margin: 3px;
+    margin-bottom: 5px;
+    font-size: 18px;
+    padding: 8px 60px;
+}*/
+
+
+
+/*especifico de crear producto y editar producto */
+h3.addedit {
+    text-align: center;
+}
+form.add-edit {
+    margin: 15px auto;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F3F1F0;
+    border-radius: 8px;
+    padding: 8px;
+}
+form.add-edit input {
+    background-color: #fff;
+}
+textarea {
+    border: 0;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* alinea checkbox con label */
+label.check {
+    display: block;
+    padding-left: 15px;
+    text-indent: -15px;
+  }
+  input.check {
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    margin:0;
+    vertical-align: bottom;
+    position: relative;
+    top: -1px;
+    *overflow: hidden;
+  }
+  span.imgs {
+      font-size: 12px;
+      color:gray;
+  }
+  label {
+      margin-bottom: 3px;
+  }
+  .descripcion {
+      display: flex;
+      color: black;
+  }
+
+
+@media(min-width:769px) {
+    main {
+        margin-top: 200px;
+    }
+ .buttons {
+     flex-direction: row;
+ }
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include ('../partials/head') %> 
+<body>
+    <%- include('../partials/header') %>
+
+        <main>
+            <% if (locals.errors) { %>
+                <% for( let oneError in errors) { %>
+                    <p>
+                        <%= errors[oneError].msg %>
+                    </p>
+
+                    <% } %>
+
+                        <% } %>
+                            <div class="crea">Editando al usuario <%= locals.oldData ? oldData.name:
+                                    user.first_name %>
+                            </div>
+
+                            <form action="/users/edituser/<%= locals.id ? id : user.id %>?_method=PUT"
+                                method="POST" enctype="multipart/form-data" class="add-edit" id="formulario-register">
+                                <%= console.log(locals.oldData) %>
+                                <div class="form-control" id="grupo_name">
+                                    <label for="nombre" class="formulario_label">Nombre</label>
+                                    <div class="formulario_grupo_input">
+                                        <input type="text" name="name" class="formulario_input" value=<%=locals.oldData ? oldData.first_name :
+                                            user.first_name %>>
+                                        <i class="formulario_validacion_estado fas fa-times-circle"></i>
+                                    </div>
+                                    <p class="formulario_input_error">El nombre debe tener minimo 2 caracteres</p>
+                                    <% if (locals.errors && errors.name ) { %>
+                                        <div class="text-danger">
+                                            <p>
+                                                <%= errors.name.msg %>
+                                            </p>
+                                        </div>
+                                        <% } %>
+                                </div>
+                                </div>
+
+                                <div class="form-control" id="grupo_lastname">
+                                <label for="lastname" class="formulario_label">Apellido</label>
+                                <div class="formulario_grupo_input">
+                                    <input type="text" name="lastname" class="formulario_input" autocomplete="off" value=<%=locals.oldData ?
+                                        oldData.last_name : user.last_name %>>
+                                    <i class="formulario_validacion_estado fas fa-times-circle"></i>
+                                </div>
+                                <p class="formulario_input_error">El nombre debe tener minimo 2 caracteres</p>
+                                <% if (locals.errors && errors.lastname ) { %>
+                                    <div class="text-danger">
+                                        <p>
+                                            <%= errors.lastname.msg %>
+                                        </p>
+                                    </div>
+                                    <% } %>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label for="">Fecha de nacimiento</label>
+                                            <input type="date" name="dob" value=<%=locals.oldData ? oldData.dob :
+                                                user.dob %>>
+                                        </div>
+
+                                        <div class="form-control" id="avatar">
+                                            <label for="image">Imagen de perfil</label>
+                                            <input type="file" name="avatar" accept=".png, .jpg, .jpeg">
+                                            <% if (locals.errors && errors.avatar ) { %>
+                                                <div class="text-danger">
+                                                    <p>
+                                                        <%= errors.avatar.msg %>
+                                                    </p>
+                                                </div>
+                                                <% } %>
+                                        </div>
+
+                                        <div class="form-control" id="grupo_password">
+                                            <label for="" class="formulario_label">Contraseña</label>
+                                            <div class="formulario_grupo_input">
+                                                <input type="password" class="formulario_input" id="password" name="password" autocomplete="off"
+                                                    placeholder="Debe contener 8 caracteres y un numero">
+                                                <i class="formulario_validacion_estado fas fa-times-circle"></i>
+                                            </div>
+                                            <p class="formulario_input_error">Debe contener 8 caracteres y un numero</p>
+                                            <% if (locals.errors && errors.password ) { %>
+                                                <div class="text-danger">
+                                                    <p>
+                                                        <%= errors.password.msg %>
+                                                    </p>
+                                                </div>
+                                                <% } %>
+                                        </div>
+
+                                        <div class="form-control" id="grupo_password2">
+                                            <label for="" class="formulario_label">Repetir Contraseña</label>
+                                            <div class="formulario_grupo_input">
+                                                <input type="password" class="formulario_input" id="password2" name="repassword">
+                                                <i class="formulario_validacion_estado repass fas fa-times-circle"></i>
+                                                <p class="formulario_input_error">Ambas contraseñas deben ser iguales.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="buttons">
+                                            <button type="submit" class="enviar">Guardar Cambios</button>
+
+        </main>
+
+        <script src="/js/NewRegisterValidations.js"></script>
+        <%- include('../partials/footer') %>
+
+</body>
+    </html>

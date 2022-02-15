@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include ('partials/head') %> 
+<body>
+    <%- include('partials/header')  %> 
+    <main class="body-product">
+
+        <section class="visita">
+            <h3>TUS PRODUCTOS FAVORITOS</h3>
+        </section>
+        
+       
+        
+    
+        <div class="menu-imagenes-favoritos"> 
+           
+            <div class="products">
+                
+                <% resultado.forEach(product => { %>
+                    <div class="highlight-prod">
+                        <a href="/products/<%= product.id %> " class="unit-product">
+                        <img src="/img/productos/<%= product.img %>" width="200" alt="taza" class="producto_img"></a> 
+                        <div class="precio-products">
+                        <p>$<%= product.price%></p>
+                        <p><%= product.name%></p>
+                        <% if (locals.isLogged) { %>
+                            <div class="botones">                              
+                                <form action="/products/favoritos/<%= product.id  %>?_method=DELETE" method="POST">
+                                <button type="submit" class="action-buttondelete">ELIMINAR</button>
+                                </form>
+                            </div>
+                            <% } %> 
+                        </div>
+                    </div>
+                   <% }) %> 
+                
+                    </div>            
+        </div>     
+        
+   </main>
+   <%- include('partials/footer')  %> 
+   
+</body>
+</html>
