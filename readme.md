@@ -45,6 +45,11 @@ Pass: 12345678
 Run it on 3001 port
 
 
+### **Check the dashboard we developed in React! :atom_symbol:** 
+
+Link to repo :point_down:
+
+https://github.com/melibass/dashboard-ecommerce
 
 
 # **PROYECTO INTEGRADOR PARA DIGITAL HOUSE** 
@@ -88,3 +93,10 @@ Contraseña: 12345678
 ``````
 
 Correlo en el puerto 3001
+
+### **Mira el dashboard que hicimos en React! :atom_symbol:** 
+
+Link al repo :point_down:
+
+https://github.com/melibass/dashboard-ecommerce
+
